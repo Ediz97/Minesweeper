@@ -1,107 +1,65 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework and don't mind using pre-1.0 software — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
+# Minesweeper v1.0
 
----
+Play my version of Minesweeper!
 
-# svelte app
+![Screenshot of the game](minesweeper-screenshot.png)
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+## Requirements
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Node.js](https://nodejs.org/en/) installed. <br>
+In the following, I will give instructions on how to run the game with either Docker or Node.
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+## Instructions with Docker installed
+
+1. Clone the repository, or download the zip and extract
+2. Run the command prompt at the directory, by opening the downloaded folder and typing `cmd` into the address bar:<br>
+
+<div style="margin-left: 25px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="runcmd.png" alt="Instruction on how to run cmd"> </div> <br>
+
+3. Inside the command prompt, type and confirm:
 ```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
+  docker compose up
 ```
+4. Open your browser of choice, type `localhost` into the URL bar and start playing!
 
-...then start [Rollup](https://rollupjs.org):
+## Instructions with Node.js installed
 
-```bash
-npm run dev
+1. Clone the repository, or download the zip and extract
+2. Run the command prompt at the directory, by opening the downloaded folder and typing `cmd` into the address bar:<br>
+
+<div style="margin-left: 25px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="runcmd.png" alt="Instruction on how to run cmd"> </div> <br>
+
+3. Inside the command prompt, type and confirm:
 ```
-
-Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
+  npm install 
 ```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
 ```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
+  npm run dev
 ```
+4. Open your browser of choice, type `localhost:5173` into the URL bar and start playing!
 
-Or remove the script via:
+## Features
+- three difficulty modes (Easy, Medium, Hard)
+- automatic revealing of neighbours, when there's no mine around
+- revealing all neighbours with Left-Click + Right-Click
+- timer, that's tracking your progress
+- flag counter
+- flagging tiles with Right-Click
 
-```bash
-rm scripts/setupTypeScript.js
-```
 
-If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
+## What technologies were used
 
-## Deploying to the web
+This application was created with [Svelte](https://svelte.dev/), which is a frontend framework for Javascript. 
+The application consists of multiple components, which are located in the `src` folder and are joined together in the `App.svelte` file.
 
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+## Structure
+The component structure that I chose for this project:
+- `App.svelte`
+- - `DifficultySelection.svelte`
+- - `UserInterface.svelte`
+- - - `FlagsCount.svelte`
+- - - `Timer.svelte`
+- - - `ResetButton.svelte`
+- - - `Minesfield.svelte`
+- - - - `Cells.svelte`
+- `stores.js`
