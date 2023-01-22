@@ -1,6 +1,6 @@
 # Minesweeper v1.0
 
-Play my version of Minesweeper!
+[Outdated!] Play my version of Minesweeper!
 
 ![Screenshot of the game](minesweeper-screenshot.png)
 
