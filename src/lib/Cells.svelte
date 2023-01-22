@@ -118,6 +118,7 @@
 
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="Field" style="background: rgb({50 * (tileIndex % 2)}, {50 * (tileIndex % 2)}, {50 * (tileIndex % 2)})"
      on:mousedown="{() => mouseButtonsClicked++}"
      on:click="{() => mouseButtonsClicked = 0}"
@@ -153,7 +154,6 @@
     button {
         height: 100%;
         width: 100%;
-        margin-top: 8px;
     }
 
     .unmarked {

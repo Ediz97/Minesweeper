@@ -10,7 +10,11 @@
     <img src="bobomb.png" alt="A bomb.">
 </main>
 
-<style>
+<style global lang="postcss">
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;  
+
     img {
         position: fixed;
         height: 339px;
